@@ -27,7 +27,7 @@
         app:indicatorType="split"
         android:visibility="gone"
         app:normalPointColor="@color/white"
-        app:normalPointRadius="1.5dp"
+        app:normalPointRadius="2.5dp"
         app:pointInterval="15dp"
         app:selectedPointRadius="4.5dp" />
 </RelativeLayout>

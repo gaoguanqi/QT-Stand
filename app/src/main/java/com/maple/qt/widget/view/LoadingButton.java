@@ -1,13 +1,10 @@
 package com.maple.qt.widget.view;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 
 import com.maple.qt.R;
 import com.maple.qt.widget.indicator.MapleIndicator;
@@ -38,22 +35,24 @@ public class LoadingButton extends RelativeLayout {
     }
 
 
-
-
-    public void showLoading(){
-        tvText.setVisibility(GONE);
-        miLoading.setVisibility(VISIBLE);
-        if(!hasLoging){
-            hasLoging = true;
-            miLoading.startLoop();
+    public void showLoading() {
+        if(tvText != null && miLoading != null){
+            tvText.setVisibility(GONE);
+            miLoading.setVisibility(VISIBLE);
+            if (!hasLoging) {
+                hasLoging = true;
+                miLoading.startLoop();
+            }
         }
     }
 
-    public void hideLoading(){
-        tvText.setVisibility(VISIBLE);
-        miLoading.setVisibility(GONE);
-        miLoading.stopLoop();
-        hasLoging = false;
+    public void hideLoading() {
+        if(tvText != null && miLoading != null){
+            tvText.setVisibility(VISIBLE);
+            miLoading.setVisibility(GONE);
+            miLoading.stopLoop();
+            hasLoging = false;
+        }
     }
 
     @Override
