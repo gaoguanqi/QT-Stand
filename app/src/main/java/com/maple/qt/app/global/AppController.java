@@ -6,6 +6,8 @@ import android.content.Intent;
 
 import java.util.Map;
 
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+
 /**
  * author: gaogq
  * time: 2018/10/18 14:10
@@ -14,14 +16,15 @@ import java.util.Map;
 public class AppController {
 
     private static volatile AppController sInstance = null;
-    private Application mApplication = null;
-    private Context mContext = null;
+    private Application mApplication;
+    private Context mContext;
+    private RxErrorHandler mRxErrorHandler;
 
 
-
-    public void init(Application application, Context context) {
+    public void init(Application application, Context context, RxErrorHandler rxErrorHandler) {
         this.mApplication = application;
         this.mContext = context;
+        this.mRxErrorHandler = rxErrorHandler;
     }
 
 
@@ -49,6 +52,10 @@ public class AppController {
         return mApplication;
     }
 
+
+    public RxErrorHandler getRxErrorHandler() {
+        return mRxErrorHandler;
+    }
 
     /**
      * 去往任意页面

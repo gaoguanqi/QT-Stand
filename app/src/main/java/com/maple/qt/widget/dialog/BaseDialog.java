@@ -11,7 +11,12 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.maple.qt.widget.loading.LoadingDialog;
+
 public class BaseDialog extends Dialog {
+
+    private boolean isBackDismiss;
+
     public BaseDialog(@NonNull Context context) {
         super(context);
     }
@@ -60,5 +65,20 @@ public class BaseDialog extends Dialog {
                 );
             }
         }
+    }
+
+
+    public BaseDialog notCancel() {
+        isBackDismiss = true;
+        return this;
+    }
+
+    public void setNotCancel() {
+        isBackDismiss = true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!isBackDismiss) super.onBackPressed();
     }
 }

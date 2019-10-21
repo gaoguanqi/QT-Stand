@@ -15,7 +15,6 @@ import com.maple.qt.widget.dialog.BaseDialog;
 
 public class LoadingDialog extends BaseDialog {
     private String msg = "请稍后...";
-    private boolean isBackDismiss;
 
     public LoadingDialog(@NonNull Context context) {
         super(context, R.style.BaseDialog);
@@ -44,7 +43,7 @@ public class LoadingDialog extends BaseDialog {
             WindowManager.LayoutParams lp = window.getAttributes();
             lp.width = (int) (ScreenUtils.getScreenWidth() * 0.96);
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            //window.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.shape_dialog_loading));
+//            window.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.shape_dialog_bg));
             window.setAttributes(lp);
         }
     }
@@ -56,19 +55,5 @@ public class LoadingDialog extends BaseDialog {
         setCanceledOnTouchOutside(false);
         TextView tvLoading = this.findViewById(R.id.tv_loading);
         if(tvLoading != null) tvLoading.setText(msg);
-    }
-
-    public LoadingDialog notCancel() {
-        isBackDismiss = true;
-        return this;
-    }
-
-    public void setNotCancel() {
-        isBackDismiss = true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!isBackDismiss) super.onBackPressed();
     }
 }

@@ -40,7 +40,14 @@ dependencies {
     implementation 'com.irozon.sneaker:sneaker:2.0.0'
     implementation 'com.blankj:utilcodex:1.25.9'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation 'me.jessyan:rxerrorhandler:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+
 
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+
 }
